@@ -6,120 +6,155 @@
   <title>Pokédex </title>
   <style>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      text-align: center;
-      background-color: #d19aa6;
-      min-height: 100vh;
-    }
+body {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ffd6e7 0%,
+    #ffffff 50%,
+    #d7f5d8 100%
+  );
+  font-family: 'Trebuchet MS', sans-serif;
+}
 
-    main {
-      display: inline-block;
-      margin-top: 2%;
-      padding: 15px;
-      position: relative;
-    }
+main {
+  display: inline-block;
+  margin-top: 2%;
+  padding: 15px;
+  position: relative;
+}
 
-    .pokedex {
-      width: 100%;
-      max-width: 425px;
-    }
+.pokedex {
+  width: 100%;
+  max-width: 425px;
 
-    .pokemon__image {
-      position: absolute;
-      bottom: 60%;
-      left: 50%;
-      transform: translate(-63%, 20%);
-      height: 18%;
-    }
+  filter:
+    hue-rotate(320deg)
+    saturate(0.7)
+    brightness(1.15);
 
-    .pokemon__data {
-      position: absolute;
-      font-weight: 600;
-      color: #a06a7b;
-      top: 45.9%;
-      right: 27%;
-      font-size: clamp(8px, 5vw, 25px);
-    }
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
+}
 
-    .pokemon__name {
-      color: #703842;
-    }
+.pokemon__image {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translate(-63%, 20%);
+  height: 18%;
+}
 
-    .form {
-      position: absolute;
-      width: 65%;
-      top: 55%;
-      left: 13.5%;
-    }
+.pokemon__data {
+  position: absolute;
+  font-weight: 700;
+  color: #6b5a61;
+  top: 45.9%;
+  right: 27%;
+  font-size: clamp(8px, 5vw, 25px);
+}
 
-    .input__search {
-      width: 100%;
-      padding: 4%;
-      outline: none;
-      border: 2px solid #b26d7d;
-      border-radius: 5px;
-      font-weight: 600;
-      color: #703842;
-      font-size: clamp(8px, 5vw, 1rem);
-      background-color: #fff0f5;
-      box-shadow: -3px 4px 0 #d19aa6, -5px 7px 0 #703842;
-    }
+.pokemon__name {
+  color: #79b67d;
+}
 
-    .buttons {
-      position: absolute;
-      bottom: 30%;
-      left: 50%;
-      width: 65%;
-      transform: translate(-57%, 0);
-      display: flex;
-      gap: 20px;
-      
-    }
+.form {
+  position: absolute;
+  width: 65%;
+  top: 55%;
+  left: 13.5%;
+}
 
-    .button {
-      width: 50%;
-      padding: 4%;
-      border: 2px solid #000;
-      border-radius: 5px;
-      font-size: clamp(8px, 5vw, 1rem);
-      font-weight: 600;
-      color: white;
-      background-color: #a06a7b;
-      box-shadow: -2px 3px 0 #703842, -4px 6px 0 #000;
-    }
+.input__search {
+  width: 100%;
+  padding: 4%;
+  outline: none;
+  border: 2px solid #ffc0d8;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #6b5a61;
+  font-size: clamp(8px, 5vw, 1rem);
+  background-color: white;
 
-    .button:active {
-      box-shadow: inset -4px 4px 0 #703842;
-      font-size: 0.9rem;
-    }
+  box-shadow:
+    0 4px 10px rgba(255, 192, 216, 0.4);
+}
 
-    .extra-info {
-      text-align: left;
-      color: #703842;
-      background-color: #fff6f8;
-      border-radius: 8px;
-      padding: 10px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+.input__search::placeholder {
+  color: #c996a9;
+}
 
-      margin-top: 5px;
-      max-width: 425px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.buttons {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  width: 65%;
+  transform: translate(-57%, 0);
+  display: flex;
+  gap: 20px;
+}
 
-    .extra-info h4 {
-      color: #a06a7b;
-    }
+.button {
+  width: 50%;
+  padding: 4%;
+  border: none;
+  border-radius: 12px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 
-    .extra-info span {
-      display: block;
-    }
+  background: linear-gradient(
+    135deg,
+    #ffc0d8,
+    #b8e6bc
+  );
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.extra-info {
+  text-align: left;
+  color: #6b5a61;
+  background: rgba(255,255,255,0.95);
+  border: 2px solid #d7f5d8;
+  border-radius: 20px;
+  padding: 15px;
+
+  margin-top: 15px;
+  max-width: 425px;
+  margin-left: auto;
+  margin-right: auto;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08);
+}
+
+.extra-info h4 {
+  color: #79b67d;
+  margin-top: 8px;
+}
+
+.extra-info span {
+  display: block;
+  margin-bottom: 5px;
+}
   </style>
 </head>
 <body>
@@ -145,7 +180,7 @@
       <button class="button btn-next">Próximo &gt;</button>
     </div>
 
-    <img src="./images/pokedex.png" alt="pokedex" class="pokedex" />
+    <img src="./pokedex.png" alt="pokedex" class="pokedex" />
 
     <div class="extra-info">
       <h4>Tipo:</h4>
